@@ -103,10 +103,31 @@
 }
 
 .bookmark {
+    position: relative;
     border: magenta solid;
-    width: 75px;
-    height: 75px;
+    width: 64px;
+    height: 64px;
 }
+
+.bookmark img {
+    border-radius: 50%;
+}
+
+.bookmark:hover {
+    transform: scale(90%);
+}
+
+.delBookmark {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.bookmark:hover .delBookmark {
+    display: block;
+}
+
 
 .storyTitle {
     font-size: 25px;

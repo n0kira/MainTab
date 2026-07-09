@@ -15,8 +15,6 @@ fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
     })
     .then(stories => {
         stories.forEach(story => {
-            console.log(story);
-            console.log(`${story.title} - ${story.url}`);
             const storyDiv = document.createElement('div');
             newsFeed.appendChild(storyDiv);
 
@@ -51,7 +49,6 @@ fetch('https://quoteslate.vercel.app/api/quotes/random')
 
         quoteText.innerHTML = quote;
         quoteAuthor.innerHTML = "~ "+author;
-        console.log(`${quote} - ${author}`);
     });
 
 // Weather API
@@ -65,8 +62,6 @@ if ("geolocation" in navigator) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
 
-            console.log(`Lat: ${lat} - Lon: ${lon}`);
-
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`)
                 .then(response => response.json())
                 .then(data => {
@@ -77,7 +72,6 @@ if ("geolocation" in navigator) {
                     
                     const weatherText = currentForecast.appendChild(document.createElement('p'));
                     weatherText.innerHTML = `Temp: ${temp} - Weather: ${weather}`;
-                    console.log(`Temp: ${temp} - Code: ${code} - Weather: ${weather}`);
                 });
 
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto`)
@@ -99,8 +93,6 @@ if ("geolocation" in navigator) {
                         const weatherText = weeklyForecast.appendChild(document.createElement('p'));
 
                         weatherText.innerHTML = `Date: ${date} | High: ${maxTemp}°C | Low: ${minTemp}°C | Condition: ${weather}`;
-
-                        console.log(`Date: ${date} | High: ${maxTemp}°C | Low: ${minTemp}°C | Condition: ${weather}`);
                     };
                 });
         },
@@ -122,4 +114,57 @@ function translateCode(code) {
     if (code >= 95 && code <= 99) weather="Thunderstorm";
 
     return weather;
+}
+
+// Bookmarks
+const addBookmark = document.getElementById('addBookmark');
+const bookmarksContainer = document.getElementById('bookmarks');
+
+let bookmarkList = JSON.parse(localStorage.getItem(`bookmark`)) || [];
+
+bookmarkList.forEach(link => {
+    createBookmark(link);
+});
+
+addBookmark.addEventListener("click", () => {
+    const bookmarksCount = document.querySelectorAll(`.bookmark`);
+
+    if (bookmarksCount.length <= 4) {
+        const link = "https://" + prompt("Insert bookmark link (without https://): ");
+
+        if (link) {
+
+            createBookmark(link);
+
+            bookmarkList.push(link)
+
+            localStorage.setItem(`bookmark`, JSON.stringify(bookmarkList));
+        } else {
+            alert("Bookmark creation failed. Insert a link and a name");
+        }
+    }
+});
+
+function createBookmark (link) {
+    const bookmark = bookmarksContainer.appendChild(document.createElement('div'));
+    bookmark.classList.add("bookmark");
+
+    const bookmarkText = bookmark.appendChild(document.createElement('a'));
+    bookmarkText.href = link;
+
+    const bookmarkImg = bookmarkText.appendChild(document.createElement('img'));
+    bookmarkImg.src = `https://www.google.com/s2/favicons?sz=64&domain=${link.split("//")[1]}`;
+    bookmarkImg.style.width = "64px";
+    bookmarkImg.style.height = "64px";
+
+    const delButton = bookmark.appendChild(document.createElement('button'));
+    delButton.innerText = "Del";
+    delButton.classList.add("delBookmark");
+    delButton.addEventListener("click", () => {
+        bookmark.remove();
+        bookmarkList.splice(bookmarkList.indexOf(link), 1);
+
+        localStorage.setItem('bookmark', JSON.stringify(bookmarkList));
+    });
+
 }
