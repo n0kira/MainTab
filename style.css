@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 6px);
+}
+
+#newsFeed {
+    overflow: auto;
+}
+
+#newsFeed div {
+    border: aqua solid;
+    padding: 12px;
+}
+
+#quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: salmon solid;
+    font-size: 30px;
+}
+
+#quote p {
+    text-align: center;
+    border: blueviolet solid;
+}
+
+#searchBar {
+    display: flex;
+    align-items: center;
+    border: maroon solid;
+    height: 50px;
+    border-radius: 20px;
+}
+
+#bookmarks {
+    border: rgb(58, 40, 58) solid;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#searchInput {
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+}
+
+#searchInput:focus {
+    outline: none;
+}
+
+#weatherFeed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#currentForecast {
+    margin: 12px;
+    background-color: lightskyblue;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    border: 2px solid rgb(90, 114, 122);
+}
+
+#weeklyForecast {
+    background-color: lightskyblue;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    border: 2px solid rgb(90, 114, 122);
+}
+
+#weeklyForecast p {
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+
+#rightSpace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#githubProfile {
+    border: red solid;
+    text-align: center;
+    width: 100%;
+}
+
+.bookmark {
+    border: magenta solid;
+    width: 75px;
+    height: 75px;
+}
+
+.storyTitle {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.storyAuthor {
+    font-style: italic;
+}
+
+.section {
+    width: 33%;
+}
+

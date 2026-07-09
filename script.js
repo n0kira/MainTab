@@ -4,10 +4,10 @@ const newsFeed = document.querySelector('#newsFeed');
 fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
     .then(response => response.json())
     .then(storyIds => {
-        const top5Ids = storyIds.slice(0, 5);
+        const topIds = storyIds.slice(0, 20);
 
         return Promise.all(
-            top5Ids.map(id => 
+            topIds.map(id => 
                 fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
                     .then(response => response.json())
             )
@@ -24,8 +24,11 @@ fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
             const storyAuthor = storyDiv.appendChild(document.createElement('p'));
             const storyUrl = storyDiv.appendChild(document.createElement('a'));
 
+            storyTitle.classList.add("storyTitle");
+            storyAuthor.classList.add("storyAuthor");
+
             storyTitle.innerHTML = story.title;
-            storyAuthor.innerHTML = story.by;
+            storyAuthor.innerHTML = "By @" + story.by;
             storyUrl.innerHTML = "Full Story Here";
             storyUrl.href = story.url;
         });
@@ -43,8 +46,11 @@ fetch('https://quoteslate.vercel.app/api/quotes/random')
         const quoteText = quoteSpace.appendChild(document.createElement('p'));
         const quoteAuthor = quoteSpace.appendChild(document.createElement('p'));
 
+        quoteText.classList.add("quoteText");
+        quoteAuthor.classList.add("quoteAuthor");
+
         quoteText.innerHTML = quote;
-        quoteAuthor.innerHTML = author;
+        quoteAuthor.innerHTML = "~ "+author;
         console.log(`${quote} - ${author}`);
     });
 

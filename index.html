@@ -4,18 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MainTab</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="container" style="border: yellow solid;">
-         <div id="newsFeed" style="border: red solid;"></div>
-         <div id="middleSpace" style="border: blue solid;">
+         <div class="section" id="newsFeed" style="border: red solid;"></div>
+         <div class="section" id="middleSpace" style="border: blue solid;">
             <div id="quote"></div>
-            <div id="searchBar"></div>
-            <div id="bookmarks"></div>
+            <div id="searchBar">
+                <input id="searchInput" type="text" placeholder="Search...">
+            </div>
+            <div id="bookmarks">
+                <div class="bookmark">
+                    <img src="" alt="Image">
+                    <p>Name</p>
+                    <button>Edit</button>
+                </div>
+                <div class="bookmark">
+                    <img src="" alt="Image">
+                    <p>Name</p>
+                    <button>Edit</button>
+                </div>
+                <div class="bookmark">
+                    <img src="" alt="Image">
+                    <p>Name</p>
+                    <button>Edit</button>
+                </div>
+                <div class="bookmark">
+                    <img src="" alt="Image">
+                    <p>Name</p>
+                    <button>Edit</button>
+                </div>
+                <div class="bookmark">
+                    <img src="" alt="Image">
+                    <p>Name</p>
+                    <button>Edit</button>
+                </div>
+                <div class="bookmark">
+                    <img src="" alt="Image">
+                    <p>Name</p>
+                    <button>Edit</button>
+                </div>
+            </div>
          </div>
-         <div id="weatherFeed" style="border: lime solid;">
-            <div id="currentForecast"></div>
-            <div id="weeklyForecast"></div>
+         <div class="section" id="rightSpace" style="border: lime solid;">
+           <div id="weatherFeed" style="border: coral solid;">
+                <div id="currentForecast"></div>
+                <div id="weeklyForecast"></div>
+           </div>
+           <div id="githubProfile">
+                <img src="https://streak-stats.demolab.com?user=n0kira&theme=radical&date_format=j%20M%5B%20Y%5D&background=45%2C5A2B6C%2C2A052E" width="100%" alt="">
+           </div>
          </div>   
     </div>
 
