@@ -1,7 +1,19 @@
 * {
-    margin: 0;
     padding: 0;
     border: 0;
+    overflow: hidden;
+}
+
+body {
+    background-color: rgb(21, 19, 19);
+    color: white;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a {
+    color: rgb(255, 255, 255);
 }
 
 #container {
@@ -14,39 +26,80 @@
     overflow: auto;
 }
 
+#newsFeed::-webkit-scrollbar {
+    display: none;
+}
+
 #newsFeed div {
-    border: aqua solid;
     padding: 12px;
+    color: white;
+    /* background: linear-gradient(135deg, rgba(70, 70, 70, 0.6) 25%, rgba(50, 20, 98, 0.6) 100%); */
+    /* background-color: rgba(135, 206, 250, 0.6);
+    backdrop-filter: blur(10px); */
+    margin: 60px;
+    margin-left: 5%;
+    margin-right: 35%;
+    border-radius: 12px;
+    /* border: solid rgb(145, 185, 199); */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(217, 217, 217, 0.4);
 }
 
 #quote {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: salmon solid;
-    font-size: 30px;
+    font-size: 35px;
+    margin-top: 5%;
+    margin-bottom: 25%;
+    /* background: linear-gradient(105deg, rgba(250, 235, 215, 0.5) 0%, rgba(255, 159, 33, 0.5)); */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 12px;
+    border: 2px solid rgba(217, 217, 217, 0.4);
+    border-radius: 30px;
 }
 
 #quote p {
     text-align: center;
-    border: blueviolet solid;
+    margin: 0;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 #searchBar {
     display: flex;
     align-items: center;
-    border: maroon solid;
     height: 50px;
     border-radius: 20px;
+    background-color: white;
+    border: 2px solid rgb(217, 217, 217);
 }
 
 #bookmarks {
-    border: rgb(58, 40, 58) solid;
     height: 100px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+#addBookmark {
+    border-radius: 12px;
+    width: 150px;
+    margin-top: 6px;
+    margin-left: 50%;
+    margin-right: 50%;
+    transform: translateX(-50%);
+    border: 2px solid rgb(217, 217, 217);
+}
+
+#addBookmark:hover {
+    cursor: pointer;
 }
 
 #searchInput {
@@ -61,6 +114,7 @@
 }
 
 #weatherFeed {
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,24 +123,44 @@
 
 #currentForecast {
     margin: 12px;
-    background-color: lightskyblue;
     border-radius: 12px;
-    padding: 18px;
+    border: 2px solid rgb(145, 185, 199);
+    background-color: rgba(135, 206, 250, 0.6);
+    backdrop-filter: blur(6px);
     text-align: center;
-    border: 2px solid rgb(90, 114, 122);
+    width: 120px;
+    height: 120px;
 }
 
 #weeklyForecast {
-    background-color: lightskyblue;
+    display: flex;
+    background-color: rgba(135, 206, 250, 0.3);
     border-radius: 10px;
-    padding: 12px;
     text-align: center;
-    border: 2px solid rgb(90, 114, 122);
+    border: 2px solid rgba(145, 185, 199, 0.3);
+    backdrop-filter: blur(6px);
+    overflow: hidden;
+}
+
+.weatherDiv {
+    width: 32px;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid rgba(145, 185, 199, 0.3);
+    font-size: 12px;
+}
+
+.weatherDiv div {
+    margin: 0;
+}
+
+#weeklyForecast div {
+    display: flex;
+    flex-direction: column;
 }
 
 #weeklyForecast p {
-    margin-top: 26px;
-    margin-bottom: 26px;
+    margin: 0;
 }
 
 #rightSpace {
@@ -97,14 +171,51 @@
 }
 
 #githubProfile {
-    border: red solid;
     text-align: center;
     width: 100%;
+    margin-bottom: 5%;
+}
+
+#githubProfile img {
+    width: 50%;
+    border-radius: 12px;
+}
+
+#editButton:hover {
+    cursor: pointer;
+    transform: scale(120%);
+}
+
+#editDiv {
+    position: fixed; 
+    bottom: 16px; 
+    right: 16px; 
+    text-align: center;
+    width: 32px;
+    height: 32px;
+}
+
+#prefWindow {
+    position: fixed; 
+    transform: translateX(-50%) translateY(-50%); 
+    background-color: rgba(88, 88, 88, 0.682); 
+    backdrop-filter: blur(8px);
+    border: solid black;
+    border-radius: 12px;
+    width: 500px; 
+    height: 300px; 
+    top: 50%; 
+    left: 50%; 
+    z-index: 100;
+}
+
+#titleBar {
+    text-align: center;
+    border-bottom: solid black;
 }
 
 .bookmark {
     position: relative;
-    border: magenta solid;
     width: 64px;
     height: 64px;
 }
@@ -122,6 +233,11 @@
     position: absolute;
     left: 0;
     top: 0;
+    width: 24px;
+}
+
+.delBookmark {
+    cursor: crosshair;
 }
 
 .bookmark:hover .delBookmark {

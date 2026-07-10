@@ -6,27 +6,56 @@
     <title>MainTab</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="container" style="border: yellow solid;">
-         <div class="section" id="newsFeed" style="border: red solid;"></div>
-         <div class="section" id="middleSpace" style="border: blue solid;">
+<body id="body">
+
+    <div id="prefWindow">
+        <div id="titleBar">
+            <p>Edit Preferences</p>
+        </div>
+        <div id="prefContent">
+            <div style="display: flex; flex-direction: row;" >
+                <input type="checkbox" name="" id="showNews" checked="true"><p>Show News Feed</p>
+            </div>
+            
+            <div style="display: flex; flex-direction: row;" >
+                <input type="checkbox" name="" id="showQuote" checked="true"><p>Show Quote</p>
+            </div>
+            
+            <div style="display: flex; flex-direction: row;" >
+                <input type="checkbox" name="" id="showWeather" checked="true"><p>Show Weather Forecast</p>
+            </div>
+
+            <div style="display: flex; flex-direction: row;" >
+                <input type="checkbox" name="" id="showStreak" checked="true"><p>Show GitHub Streak</p>
+            </div>
+
+            
+        </div>
+    </div>
+    
+    <div id="container">
+         <div class="section" id="newsFeed"></div>
+         <div class="section" id="middleSpace">
             <div id="quote"></div>
             <div id="searchBar">
                 <input id="searchInput" type="text" placeholder="Search...">
             </div>
-            <div id="bookmarks">
-            </div>
             <div>
                 <button id="addBookmark">Add Bookmark</button>
             </div>
+            <div id="bookmarks">
+            </div>
          </div>
-         <div class="section" id="rightSpace" style="border: lime solid;">
-           <div id="weatherFeed" style="border: coral solid;">
+         <div class="section" id="rightSpace">
+           <div id="weatherFeed">
                 <div id="currentForecast"></div>
                 <div id="weeklyForecast"></div>
            </div>
            <div id="githubProfile">
-                <img src="https://streak-stats.demolab.com?user=n0kira&theme=radical&date_format=j%20M%5B%20Y%5D&background=45%2C5A2B6C%2C2A052E" width="100%" alt="">
+                <img id="githubProfileImg" src="" alt="Click here to insert username">
+           </div>
+           <div id="editDiv">
+                <img id="editButton" src="img/edit.png" alt="Edit" width="24px">
            </div>
          </div>   
     </div>
