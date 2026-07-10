@@ -347,8 +347,10 @@ streakImg.addEventListener("click", () => {
 const input = document.getElementById('searchInput');
 
 input.addEventListener("keypress", (event) => {
-    const search = input.value;
-    window.location.href = `https://duckduckgo.com/${search}`;
+    if (event.key == "Enter") {
+        const search = input.value;
+        window.location.href = `https://duckduckgo.com/${search}`;
+    }
 });
 
 
